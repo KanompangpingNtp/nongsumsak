@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('province')->nullable();
             $table->string('telephone')->nullable();
             $table->string('refer_app_id')->nullable();
+            $table->string('copy_documents')->nullable();
             $table->timestamps();
         });
     }
