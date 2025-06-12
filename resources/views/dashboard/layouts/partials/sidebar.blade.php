@@ -174,56 +174,55 @@
                 </ul>
             </li>
 
-            {{-- <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
+            <li class="menu-item {{ request()->is('admin/private_market*') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
-                    <div data-i18n="User interface" class="text-truncate">ประกอบกิจการรับทำการเก็บ ขน หรือ
-                        กำจัดสิ่งปฏิกูลหรือมูลฝอย</div>
+                    <div data-i18n="User interface" class="text-truncate">แบบคำร้องขอจัดตั้งตลาด</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/form') ? 'active' : '' }}">
+                        <a href="{{ route('PrivateMarketForm') }}" class="menu-link">
                             <div>นำเข้าคำร้อง</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/showdata') ? 'active' : '' }}">
+                        <a href="{{ route('PrivateMarketAdminShowData') }}" class="menu-link">
                             <div>รับเรื่อง</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/appointment') ? 'active' : '' }}">
+                        <a href="{{ route('PrivateMarketAdminAppointment') }}" class="menu-link">
                             <div>การนัดหมาย</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/explore') ? 'active' : '' }}">
+                        <a href="{{ route('PrivateMarketAdminExplore') }}" class="menu-link">
                             <div>ออกสำรวจ</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/payment') ? 'active' : '' }}">
+                        <a href="{{ route('PrivateMarketAdminPayment') }}" class="menu-link">
                             <div>ชำระเงิน</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/approve') ? 'active' : '' }}">
+                        <a href="{{ route('PrivateMarketAdminApprove') }}" class="menu-link">
                             <div>ออกใบอนุญาต</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/private_market/expire') ? 'active' : '' }}">
+                        <a href="{{ route('CertificatePrivateMarketExpire') }}" class="menu-link">
                             <div>ใบอนุญาตใกล้หมดอายุ</div>
                         </a>
                     </li>
                 </ul>
-            </li> --}}
+            </li>
         @endif
 
         @if (Auth::user()->level == 'user')

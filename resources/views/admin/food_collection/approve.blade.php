@@ -71,7 +71,7 @@
                         }).then((result) => {
                             if (result.isConfirmed) {
                                 $.ajax({
-                                    url: '/admin/certificate/food_collection/extend'
+                                    url: '/admin/certificate/food_sales/extend'
                                     , type: 'POST'
                                     , data: {
                                         _token: $('meta[name="csrf-token"]').attr('content')

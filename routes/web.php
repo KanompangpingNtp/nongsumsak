@@ -10,6 +10,8 @@ use App\Http\Controllers\food_collection\AdminFoodCollection;
 use App\Http\Controllers\food_collection\FoodCollection;
 use App\Http\Controllers\food_sales\AdminFoodSales;
 use App\Http\Controllers\food_sales\FoodSales;
+use App\Http\Controllers\private_market\AdminPrivateMarket;
+use App\Http\Controllers\private_market\PrivateMarket;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,30 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/index', [AdminController::class, 'AdminIndex'])->name('AdminIndex');
+
+    //แบบคำร้องขอจัดตั้งตลาด
+    Route::get('/admin/private_market/form', [PrivateMarket::class, 'PrivateMarketForm'])->name('PrivateMarketForm');
+    Route::post('/admin/private_market/form/create', [PrivateMarket::class, 'PrivateMarketFormCreate'])->name('PrivateMarketFormCreate');
+
+    Route::get('/admin/private_market/showdata', [AdminPrivateMarket::class, 'PrivateMarketAdminShowData'])->name('PrivateMarketAdminShowData');
+    Route::get('/admin/private_market/export-pdf/{id}', [AdminPrivateMarket::class, 'PrivateMarketAdminExportPDF'])->name('PrivateMarketAdminExportPDF');
+    Route::get('/admin/private_market/confirm/{id}', [AdminPrivateMarket::class, 'PrivateMarketAdminConfirm'])->name('PrivateMarketAdminConfirm');
+    Route::put('/admin/private_market/confirm', [AdminPrivateMarket::class, 'PrivateMarketAdminConfirmSave'])->name('PrivateMarketAdminConfirmSave');
+    Route::get('/admin/private_market/appointment', [AdminPrivateMarket::class, 'PrivateMarketAdminAppointment'])->name('PrivateMarketAdminAppointment');
+    Route::get('/admin/private_market/detail/{id}', [AdminPrivateMarket::class, 'PrivateMarketAdminDetail'])->name('PrivateMarketAdminDetail');
+    Route::get('/admin/private_market/calendar/{id}', [AdminPrivateMarket::class, 'PrivateMarketAdminCalendar'])->name('PrivateMarketAdminCalendar');
+    Route::put('/admin/private_market/calendarSave', [AdminPrivateMarket::class, 'PrivateMarketAdminCalendarSave'])->name('PrivateMarketAdminCalendarSave');
+    Route::get('/admin/private_market/explore', [AdminPrivateMarket::class, 'PrivateMarketAdminExplore'])->name('PrivateMarketAdminExplore');
+    Route::get('/admin/private_market/checklist/{id}', [AdminPrivateMarket::class, 'PrivateMarketAdminChecklist'])->name('PrivateMarketAdminChecklist');
+    Route::put('/admin/private_market/checklistSave', [AdminPrivateMarket::class, 'PrivateMarketAdminChecklistSave'])->name('PrivateMarketAdminChecklistSave');
+    Route::get('/admin/private_market/payment', [AdminPrivateMarket::class, 'PrivateMarketAdminPayment'])->name('PrivateMarketAdminPayment');
+    Route::get('/admin/private_market/payment-check/{id}', [AdminPrivateMarket::class, 'PrivateMarketAdminPaymentCheck'])->name('PrivateMarketAdminPaymentCheck');
+    Route::put('/admin/private_market/paymentSave', [AdminPrivateMarket::class, 'PrivateMarketAdminPaymentSave'])->name('PrivateMarketAdminPaymentSave');
+    Route::get('/admin/private_market/approve', [AdminPrivateMarket::class, 'PrivateMarketAdminApprove'])->name('PrivateMarketAdminApprove');
+    Route::get('/admin/certificate/private_market/export-pdf/{id}', [AdminPrivateMarket::class, 'AdminCertificatePrivateMarketPDF'])->name('AdminCertificatePrivateMarketPDF');
+    Route::post('/admin/certificate/private_market/extend', [AdminPrivateMarket::class, 'CertificatePrivateMarketCopy'])->name('CertificatePrivateMarketCopy');
+    Route::get('/admin/private_market/expire', [AdminPrivateMarket::class, 'CertificatePrivateMarketExpire'])->name('CertificatePrivateMarketExpire');
+
 
     //ใบอนุญาตจัดตั้งสถานที่สะสมอาหาร
     Route::get('/admin/food_collection/form', [FoodCollection::class, 'FoodCollectionFrom'])->name('FoodCollectionFrom');
