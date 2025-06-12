@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('details_subdistrict')->nullable();
             $table->string('details_district')->nullable();
             $table->string('details_province')->nullable();
-            $table->string('details_telephone');
+            $table->string('details_telephone')->nullable();
             $table->string('details_fax')->nullable();
             $table->string('business_area')->nullable();
             $table->string('number_of_cooks')->nullable();
