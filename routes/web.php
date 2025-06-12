@@ -6,8 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Test;
 use App\Http\Controllers\health_hazard_applications\AdminHealthHazardApplication;
 use App\Http\Controllers\health_hazard_applications\HealthHazardApplication;
-use App\Http\Controllers\food_license\AdminFoodLicense;
-use App\Http\Controllers\food_license\FoodLicense;
+use App\Http\Controllers\food_collection\AdminFoodCollection;
+use App\Http\Controllers\food_collection\FoodCollection;
 use App\Http\Controllers\food_sales\AdminFoodSales;
 use App\Http\Controllers\food_sales\FoodSales;
 
@@ -39,6 +39,28 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/index', [AdminController::class, 'AdminIndex'])->name('AdminIndex');
 
+    //ใบอนุญาตจัดตั้งสถานที่สะสมอาหาร
+    Route::get('/admin/food_collection/form', [FoodCollection::class, 'FoodCollectionFrom'])->name('FoodCollectionFrom');
+    Route::post('/admin/food_collection/form/create', [FoodCollection::class, 'FoodCollectionFromCreate'])->name('FoodCollectionFromCreate');
+    Route::get('/admin/food_collection/showdata', [AdminFoodCollection::class, 'FoodCollectionAdminShowData'])->name('FoodCollectionAdminShowData');
+    Route::get('/admin/food_collection/export-pdf/{id}', [AdminFoodCollection::class, 'FoodCollectionAdminExportPDF'])->name('FoodCollectionAdminExportPDF');
+    Route::get('/admin/food_collection/showdata/confirm/{id}', [AdminFoodCollection::class, 'FoodCollectionAdminConfirm'])->name('FoodCollectionAdminConfirm');
+    Route::put('/admin/food_collection/confirm', [AdminFoodCollection::class, 'FoodCollectionAdminConfirmSave'])->name('FoodCollectionAdminConfirmSave');
+    Route::get('/admin/food_collection/detail/{id}', [AdminFoodCollection::class, 'FoodCollectionAdminDetail'])->name('FoodCollectionAdminDetail');
+    Route::get('/admin/food_collection/appointment', [AdminFoodCollection::class, 'FoodCollectionAdminAppointment'])->name('FoodCollectionAdminAppointment');
+    Route::get('/admin/food_collection/calendar/{id}', [AdminFoodCollection::class, 'FoodCollectionAdminCalendar'])->name('FoodCollectionAdminCalendar');
+    Route::put('/admin/food_collection/calendarSave', [AdminFoodCollection::class, 'FoodCollectionAdminCalendarSave'])->name('FoodCollectionAdminCalendarSave');
+    Route::get('/admin/food_collection/explore', [AdminFoodCollection::class, 'FoodCollectionAdminExplore'])->name('FoodCollectionAdminExplore');
+    Route::get('/admin/food_collection/checklist/{id}', [AdminFoodCollection::class, 'FoodCollectionAdminChecklist'])->name('FoodCollectionAdminChecklist');
+    Route::put('/admin/food_collection/checklistSave', [AdminFoodCollection::class, 'FoodCollectionAdminChecklistSave'])->name('FoodCollectionAdminChecklistSave');
+    Route::get('/admin/food_collection/payment', [AdminFoodCollection::class, 'FoodCollectionAdminPayment'])->name('FoodCollectionAdminPayment');
+    Route::get('/admin/food_collection/payment-check/{id}', [AdminFoodCollection::class, 'FoodCollectionAdminPaymentCheck'])->name('FoodCollectionAdminPaymentCheck');
+    Route::put('/admin/food_collection/paymentSave', [AdminFoodCollection::class, 'FoodCollectionAdminPaymentSave'])->name('FoodCollectionAdminPaymentSave');
+    Route::get('/admin/food_collection/approve', [AdminFoodCollection::class, 'FoodCollectionAdminApprove'])->name('FoodCollectionAdminApprove');
+    Route::get('/admin/certificate/food_collection/export-pdf/{id}', [AdminFoodCollection::class, 'AdminCertificateFoodCollectionPDF'])->name('AdminCertificateFoodCollectionPDF');
+    Route::post('/admin/certificate/food_collection/extend', [AdminFoodCollection::class, 'CertificateFoodCollectionCoppy'])->name('CertificateFoodCollectionCoppy');
+    Route::get('/admin/food_collection/expire', [AdminFoodCollection::class, 'CertificateFoodCollectionExpire'])->name('CertificateFoodCollectionExpire');
+
     //ใบอนุญาตจัดตั้งสถานที่จำหน่ายอาหาร
     Route::get('/admin/food_sales/form', [FoodSales::class, 'FoodSalesFrom'])->name('FoodSalesFrom');
     Route::post('/admin/food_sales/form/create', [FoodSales::class, 'FoodSalesFromCreate'])->name('FoodSalesFromCreate');
@@ -60,30 +82,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/certificate/food_sales/export-pdf/{id}', [AdminFoodSales::class, 'AdminCertificateFoodSalesPDF'])->name('AdminCertificateFoodSalesPDF');
     Route::post('/admin/certificate/food_sales/extend', [AdminFoodSales::class, 'CertificateFoodSalesCoppy'])->name('CertificateFoodSalesCoppy');
     Route::get('/admin/food_sales/expire', [AdminFoodSales::class, 'CertificateFoodSalesExpire'])->name('CertificateFoodSalesExpire');
-
-    //แบบคำร้องใบอณุญาตสะสมอาหาร
-    // Route::get('/admin/food_storage_license/form', [FoodLicense::class, 'FoodStorageLicenseFormPage'])->name('FoodStorageLicenseFormPage');
-    // Route::post('/admin/food_storage_license/form/create', [FoodLicense::class, 'FoodStorageLicenseFormCreate'])->name('FoodStorageLicenseFormCreate');
-    // Route::get('/admin/food_storage_license/showdata', [AdminFoodLicense::class, 'FoodStorageLicenseAdminShowData'])->name('FoodStorageLicenseAdminShowData');
-    // Route::get('/admin/food_storage_license/appointment', [AdminFoodLicense::class, 'FoodStorageLicenseAdminAppointment'])->name('FoodStorageLicenseAdminAppointment');
-    // Route::get('/admin/food_storage_license/explore', [AdminFoodLicense::class, 'FoodStorageLicenseAdminExplore'])->name('FoodStorageLicenseAdminExplore');
-    // Route::get('/admin/food_storage_license/payment', [AdminFoodLicense::class, 'FoodStorageLicenseAdminPayment'])->name('FoodStorageLicenseAdminPayment');
-    // Route::get('/admin/food_storage_license/approve', [AdminFoodLicense::class, 'FoodStorageLicenseAdminApprove'])->name('FoodStorageLicenseAdminApprove');
-    // Route::get('/admin/food_storage_license/export-pdf/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminExportPDF'])->name('FoodStorageLicenseAdminExportPDF');
-    // Route::get('/admin/food_storage_license/calendar/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminCalendar'])->name('FoodStorageLicenseAdminCalendar');
-    // Route::get('/admin/food_storage_license/checklist/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminChecklist'])->name('FoodStorageLicenseAdminChecklist');
-    // Route::get('/admin/food_storage_license/payment-check/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminPaymentCheck'])->name('FoodStorageLicenseAdminPaymentCheck');
-    // Route::get('/admin/food_storage_license/detail/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminDetail'])->name('FoodStorageLicenseAdminDetail');
-    // Route::get('/admin/food_storage_license/confirm/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminConfirm'])->name('FoodStorageLicenseAdminConfirm');
-    // Route::put('/admin/food_storage_license/confirm', [AdminFoodLicense::class, 'FoodStorageLicenseAdminConfirmSave'])->name('FoodStorageLicenseAdminConfirmSave');
-    // Route::put('/admin/food_storage_license/checklistSave', [AdminFoodLicense::class, 'FoodStorageLicenseAdminChecklistSave'])->name('FoodStorageLicenseAdminChecklistSave');
-    // Route::put('/admin/food_storage_license/calendarSave', [AdminFoodLicense::class, 'FoodStorageLicenseAdminCalendarSave'])->name('FoodStorageLicenseAdminCalendarSave');
-    // Route::put('/admin/food_storage_license/paymentSave', [AdminFoodLicense::class, 'FoodStorageLicenseAdminPaymentSave'])->name('FoodStorageLicenseAdminPaymentSave');
-    // Route::post('/admin/food_storage_license/admin-reply/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseAdminReply'])->name('FoodStorageLicenseAdminReply');
-    // Route::post('/admin/food_storage_license/update-status/{id}', [AdminFoodLicense::class, 'FoodStorageLicenseUpdateStatus'])->name('FoodStorageLicenseUpdateStatus');
-    // Route::get('/admin/certificate/food_storage_license/export-pdf/{id}', [AdminFoodLicense::class, 'AdminCertificateFoodStorageLicensePDF'])->name('AdminCertificateFoodStorageLicensePDF');
-    // Route::post('/admin/food_storage_license/extend', [AdminFoodLicense::class, 'FoodStorageLicenseCoppy'])->name('FoodStorageLicenseCoppy');
-    // Route::get('/admin/food_storage_license/expire', [AdminFoodLicense::class, 'FoodStorageLicenseExpire'])->name('FoodStorageLicenseExpire');
 
     //แบบคำร้องใบอณุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
     Route::get('/admin/health_hazard_applications/form', [HealthHazardApplication::class, 'HealthHazardApplicationFormPage'])->name('HealthHazardApplicationFormPage');

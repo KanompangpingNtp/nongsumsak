@@ -20,7 +20,7 @@
             <li class="menu-item {{ request()->is('admin/health_hazard_applications*') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
-                    <div data-i18n="User interface" class="text-truncate">ใบอนุญาตประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
+                    <div data-i18n="User interface" class="text-truncate">ประกอบกิจการที่เป็นอันตรายต่อสุขภาพ
                     </div>
                 </a>
                 <ul class="menu-sub">
@@ -77,7 +77,7 @@
             <li class="menu-item {{ request()->is('admin/food_sales*') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
-                    <div data-i18n="User interface" class="text-truncate">ใบอนุญาตจัดตั้งสถานที่จำหน่ายอาหาร</div>
+                    <div data-i18n="User interface" class="text-truncate">จัดตั้งสถานที่จำหน่ายอาหาร</div>
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item {{ request()->is('admin/food_sales/form') ? 'active' : '' }}">
@@ -124,57 +124,57 @@
                 </ul>
             </li>
 
-            {{-- <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
+            <li class="menu-item {{ request()->is('admin/food_collection*') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
-                    <div data-i18n="User interface" class="text-truncate">ใบอนุญาตจัดตั้งตลาด</div>
+                    <div data-i18n="User interface" class="text-truncate">จัดตั้งสถานที่สะสมอาหาร</div>
                 </a>
                 <ul class="menu-sub">
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/form') ? 'active' : '' }}">
+                        <a href="{{ route('FoodCollectionFrom') }}" class="menu-link">
                             <div>นำเข้าคำร้อง</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/showdata') ? 'active' : '' }}">
+                        <a href="{{ route('FoodCollectionAdminShowData') }}" class="menu-link">
                             <div>รับเรื่อง</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/appointment') ? 'active' : '' }}">
+                        <a href="{{ route('FoodCollectionAdminAppointment') }}" class="menu-link">
                             <div>การนัดหมาย</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/explore') ? 'active' : '' }}">
+                        <a href="{{ route('FoodCollectionAdminExplore') }}" class="menu-link">
                             <div>ออกสำรวจ</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/payment') ? 'active' : '' }}">
+                        <a href="{{ route('FoodCollectionAdminPayment') }}" class="menu-link">
                             <div>ชำระเงิน</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/approve') ? 'active' : '' }}">
+                        <a href="{{ route('FoodCollectionAdminApprove') }}" class="menu-link">
                             <div>ออกใบอนุญาต</div>
                         </a>
                     </li>
 
-                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
-                        <a href="" class="menu-link">
+                    <li class="menu-item {{ request()->is('admin/food_collection/expire') ? 'active' : '' }}">
+                        <a href="{{ route('CertificateFoodCollectionExpire') }}" class="menu-link">
                             <div>ใบอนุญาตใกล้หมดอายุ</div>
                         </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
+            {{-- <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
                     <div data-i18n="User interface" class="text-truncate">ประกอบกิจการรับทำการเก็บ ขน หรือ
