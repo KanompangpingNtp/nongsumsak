@@ -16,6 +16,7 @@
                             <th>วันที่ขอใบอนุญาต</th>
                             <th>ผู้ขอใบอนุญาต</th>
                             <th>ประเภทขอใบอนุญาต</th>
+                            <th>วันนับจากวันที่มายื่น</th>
                             <th>สถานะ</th>
                             <th>จัดการ</th>
                         </tr>
@@ -26,6 +27,7 @@
                             <td class="date-column">{{ $form->created_at->format('Y-m-d') }}</td>
                             <td>{{ $form->salutation }} {{ $form->full_name }}</td>
                             <td>จัดตั้งสถานที่จำหน่ายอาหาร</td>
+                            <td>{{days_until_due($form->created_at)}}</td>
                             <td>
                                 @if ($form['details']->status == 1)
                                 <span class="badge rounded-pill text-primary">รอรับเรื่อง</span>
