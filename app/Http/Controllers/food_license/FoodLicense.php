@@ -1,25 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\health_hazard_applications;
+namespace App\Http\Controllers\food_license;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\HealthLicenseApp;
-use App\Models\HealthLicenseDetail;
-use App\Models\HealthLicenseFiles;
+use App\Models\FoodStorageInformations;
+use App\Models\FoodStorageFormDetails;
+use App\Models\FoodStorageFormFiles;
+use App\Models\FoodStorageType;
 
-class HealthHazardApplication extends Controller
+class FoodLicense extends Controller
 {
-    public function HealthHazardApplicationFormPage()
+    public function FoodStorageLicenseFormPage()
     {
-        return view('admin.health_hazard_applications.form.page-form');
+        $types = FoodStorageType::all();
+
+        return view('admin.food_storage_license.form.page-form', compact('types'));
     }
 
-    public function HealthHazardApplicationFormCreate(Request $request)
+    public function FoodStorageLicenseFormCreate(Request $request)
     {
         // dd($request);
 
-        $HealthLicenseApp = HealthLicenseApp::create([
+        $FoodStorageInformations = FoodStorageInformations::create([
             'users_id' => auth()->id(),
             'form_status' => 1,
             'title_name' => $request->title_name,
@@ -39,11 +42,15 @@ class HealthHazardApplication extends Controller
             'fax' => $request->fax,
         ]);
 
-        $HealthLicenseDetail = HealthLicenseDetail::create([
-            'health_license_id' => $HealthLicenseApp->id,
-            'type_request' => $request->type_request,
-            'petition' => $request->petition,
-            'name_establishment' => $request->name_establishment,
+        $FoodStorageFormDetails = FoodStorageFormDetails::create([
+            'informations_id' => $FoodStorageInformations->id,
+            'confirm_option' => $request->confirm_option,
+            'confirm_volume' => $request->confirm_volume,
+            'confirm_number' => $request->confirm_number,
+            'confirm_year' => $request->confirm_year,
+            'confirm_expiration_date' => $request->confirm_expiration_date,
+            'place_name' => $request->place_name,
+            'shop_type' => $request->shop_type,
             'location' => $request->location,
             'details_village' => $request->details_village,
             'details_alley' => $request->details_alley,
@@ -54,14 +61,15 @@ class HealthHazardApplication extends Controller
             'details_telephone' => $request->details_telephone,
             'details_fax' => $request->details_fax,
             'business_area' => $request->business_area,
-            'machine_power' => $request->machine_power,
-            'number_male_workers' => $request->number_male_workers,
-            'number_female_workers' => $request->number_female_workers,
+            'number_of_cooks' => $request->number_of_cooks,
+            'number_of_food' => $request->number_of_food,
+            'including_food_handlers' => $request->including_food_handlers,
+            'number_of_trainees' => $request->number_of_trainees,
             'opening_hours' => $request->opening_hours,
             'opening_for_business_until' => $request->opening_for_business_until,
+            'total_hours' => $request->total_hours,
             'document_option' => json_encode($request->document_option),
             'document_option_detail' => $request->document_option_detail,
-            'status' => 1,
         ]);
 
         if ($request->hasFile('attachments')) {
@@ -71,8 +79,8 @@ class HealthHazardApplication extends Controller
                 $filename = time() . '_' . $file->getClientOriginalName();
                 $path = $file->storeAs('attachments', $filename, 'public');
 
-                HealthLicenseFiles::create([
-                    'health_license_id' => $HealthLicenseApp->id,
+                FoodStorageFormFiles::create([
+                    'informations_id' => $FoodStorageInformations->id,
                     'file_path' => $path,
                     'file_type' => $file->getClientMimeType(),
                     'document_type' => $documentType,
