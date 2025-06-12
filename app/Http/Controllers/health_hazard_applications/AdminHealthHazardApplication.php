@@ -18,7 +18,7 @@ use Carbon\Carbon;
 
 class AdminHealthHazardApplication extends Controller
 {
-     public function HealthHazardApplicationAdminShowData()
+    public function HealthHazardApplicationAdminShowData()
     {
         $forms = HealthLicenseApp::whereHas('details', function ($query) {
             $query->whereIn('status', [1, 2]);

@@ -27,7 +27,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>ใบอนุญาต จัดตั้งสถานที่จำหน่ายอาหาร</td>
+                    <td>ใบอนุญาตจัดตั้งสถานที่จำหน่ายอาหาร</td>
                     <td class="text-center">
                         <a href="{{ route('formExportPDF2') }}" class="btn btn-danger btn-sm" target="_blank">
                             ใบอนุญาติ

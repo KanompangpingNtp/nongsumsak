@@ -17,56 +17,6 @@
         <li class="menu-header small text-uppercase"><span class="menu-header-text">menu</span></li>
 
         @if (Auth::user()->level == 'admin')
-            <li class="menu-item {{ request()->is('admin/food_storage_license*') ? 'active open' : '' }}">
-                <a href="javascript:void(0)" class="menu-link menu-toggle">
-                    <i class='menu-icon tf-icons bx bx-folder'></i>
-                    <div data-i18n="User interface" class="text-truncate">ใบอนุญาตสะสมอาหาร</div>
-                </a>
-                <ul class="menu-sub">
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/form') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseFormPage') }}" class="menu-link">
-                            <div>นำเข้าคำร้อง</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/showdata') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseAdminShowData') }}" class="menu-link">
-                            <div>รับเรื่อง</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/appointment') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseAdminAppointment') }}" class="menu-link">
-                            <div>การนัดหมาย</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/explore') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseAdminExplore') }}" class="menu-link">
-                            <div>ออกสำรวจ</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/payment') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseAdminPayment') }}" class="menu-link">
-                            <div>ชำระเงิน</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/approve') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseAdminApprove') }}" class="menu-link">
-                            <div>ออกใบอนุญาต</div>
-                        </a>
-                    </li>
-
-                    <li class="menu-item {{ request()->is('admin/food_storage_license/expire') ? 'active' : '' }}">
-                        <a href="{{ route('FoodStorageLicenseExpire') }}" class="menu-link">
-                            <div>ใบอนุญาตใกล้หมดอายุ</div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
             <li class="menu-item {{ request()->is('admin/health_hazard_applications*') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
@@ -124,7 +74,57 @@
                 </ul>
             </li>
 
-            <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
+            <li class="menu-item {{ request()->is('admin/food_sales*') ? 'active open' : '' }}">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons bx bx-folder'></i>
+                    <div data-i18n="User interface" class="text-truncate">ใบอนุญาตจัดตั้งสถานที่จำหน่ายอาหาร</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ request()->is('admin/food_sales/form') ? 'active' : '' }}">
+                        <a href="{{ route('FoodSalesFrom') }}" class="menu-link">
+                            <div>นำเข้าคำร้อง</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('admin/food_sales/showdata') ? 'active' : '' }}">
+                        <a href="{{ route('FoodSalesAdminShowData') }}" class="menu-link">
+                            <div>รับเรื่อง</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('admin/food_sales/appointment*') ? 'active' : '' }}">
+                        <a href="{{ route('FoodSalesAdminAppointment') }}" class="menu-link">
+                            <div>การนัดหมาย</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('admin/food_sales/explore') ? 'active' : '' }}">
+                        <a href="{{ route('FoodSalesAdminExplore') }}" class="menu-link">
+                            <div>ออกสำรวจ</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('admin/food_sales/payment*') ? 'active' : '' }}">
+                        <a href="{{ route('FoodSalesAdminPayment') }}" class="menu-link">
+                            <div>ชำระเงิน</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('admin/food_sales/approve') ? 'active' : '' }}">
+                        <a href="{{ route('FoodSalesAdminApprove') }}" class="menu-link">
+                            <div>ออกใบอนุญาต</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('admin/food_sales/expire') ? 'active' : '' }}">
+                        <a href="{{ route('CertificateFoodSalesExpire') }}" class="menu-link">
+                            <div>ใบอนุญาตใกล้หมดอายุ</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            {{-- <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
                     <div data-i18n="User interface" class="text-truncate">ใบอนุญาตจัดตั้งตลาด</div>
@@ -177,7 +177,8 @@
             <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
-                    <div data-i18n="User interface" class="text-truncate">ประกอบกิจการรับทำการเก็บ ขน หรือ กำจัดสิ่งปฏิกูลหรือมูลฝอย</div>
+                    <div data-i18n="User interface" class="text-truncate">ประกอบกิจการรับทำการเก็บ ขน หรือ
+                        กำจัดสิ่งปฏิกูลหรือมูลฝอย</div>
                 </a>
                 <ul class="menu-sub">
                     <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
@@ -222,7 +223,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         @endif
 
         @if (Auth::user()->level == 'user')
