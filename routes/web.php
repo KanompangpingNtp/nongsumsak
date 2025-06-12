@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Test;
 use App\Http\Controllers\health_hazard_applications\AdminHealthHazardApplication;
 use App\Http\Controllers\health_hazard_applications\HealthHazardApplication;
 use App\Http\Controllers\food_license\AdminFoodLicense;
@@ -87,3 +87,16 @@ Route::middleware(['admin'])->group(function () {
 });
 
 Route::middleware(['user'])->group(function () {});
+
+
+//test
+Route::get('/test', [Test::class, 'formPDF'])->name('formPDF');
+Route::get('/form/pdf/1', [Test::class, 'formExportPDF1'])->name('formExportPDF1');
+Route::get('/form/pdf/2', [Test::class, 'formExportPDF2'])->name('formExportPDF2');
+Route::get('/form/pdf/3', [Test::class, 'formExportPDF3'])->name('formExportPDF3');
+Route::get('/form/pdf/4', [Test::class, 'formExportPDF4'])->name('formExportPDF4');
+Route::get('/form/pdf/5', [Test::class, 'formExportPDF5'])->name('formExportPDF5');
+Route::get('/form/pdf/6', [Test::class, 'formExportPDF6'])->name('formExportPDF6');
+Route::get('/form/pdf/7', [Test::class, 'formExportPDF7'])->name('formExportPDF7');
+Route::get('/form/pdf/8', [Test::class, 'formExportPDF8'])->name('formExportPDF8');
+Route::get('/form/pdf/9', [Test::class, 'formExportPDF9'])->name('formExportPDF9');
