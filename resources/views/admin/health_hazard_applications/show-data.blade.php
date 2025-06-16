@@ -29,9 +29,9 @@
                                     <td>{{ days_until_due($form->created_at) }}</td>
                                     <td>
                                         @if ($form['details']->status == 1)
-                                            <span class="badge rounded-pill text-bg-primary">รอรับเรื่อง</span>
+                                            <span class="badge rounded-pill text-primary">รอรับเรื่อง</span>
                                         @elseif($form['details']->status == 2)
-                                            <span class="badge rounded-pill text-bg-warning">รอการแก้ไข</span>
+                                            <span class="badge rounded-pill text-warning">รอการแก้ไข</span>
                                         @endif
                                     </td>
                                     <td>

@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="col-md-3 mb-3">
-                                <label for="road" class="form-label">ถนน</label>
+                                <label for="road" class="form-label">หมู่ที่</label>
                                 <input type="text" class="form-control" id="road" name="road">
                             </div>
 

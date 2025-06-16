@@ -5,7 +5,7 @@
             <span class="app-brand-logo demo">
                 <i class='bx bx-clipboard-detail' style="font-size: 30px;"></i>
             </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="font-size: 21px;">ระบบใบอนุญาติ</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="font-size: 21px;">ระบบใบอนุญาต</span>
         </a>
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
             <i class="bx bx-chevron-left bx-sm align-middle"></i>
@@ -218,6 +218,56 @@
 
                     <li class="menu-item {{ request()->is('admin/private_market/expire') ? 'active' : '' }}">
                         <a href="{{ route('CertificatePrivateMarketExpire') }}" class="menu-link">
+                            <div>ใบอนุญาตใกล้หมดอายุ</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+              <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
+                <a href="javascript:void(0)" class="menu-link menu-toggle">
+                    <i class='menu-icon tf-icons bx bx-folder'></i>
+                    <div data-i18n="User interface" class="text-truncate">ประกอบกิจการรับทำการเก็บ ขน ขยะ</div>
+                </a>
+                <ul class="menu-sub">
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>นำเข้าคำร้อง</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>รับเรื่อง</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>การนัดหมาย</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>ออกสำรวจ</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>ชำระเงิน</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
+                            <div>ออกใบอนุญาต</div>
+                        </a>
+                    </li>
+
+                    <li class="menu-item {{ request()->is('') ? 'active' : '' }}">
+                        <a href="" class="menu-link">
                             <div>ใบอนุญาตใกล้หมดอายุ</div>
                         </a>
                     </li>

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('file')->nullable();
             $table->text('file_treasury')->nullable();
             $table->integer('status');
+            $table->date('expiration_date');
             $table->timestamps();
         });
     }

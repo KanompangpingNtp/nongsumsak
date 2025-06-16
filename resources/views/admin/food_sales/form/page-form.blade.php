@@ -50,8 +50,8 @@
                             </div>
 
                             <div class="col-md-2 mb-3">
-                                <label for="registration_number" class="form-label" id="id_card_input">จดทะเบียนเลขที่ <span
-                                        class="text-danger">*</span></label>
+                                <label for="registration_number" class="form-label"
+                                    id="id_card_input">เลขประจำตัวประชาชนเลขที่ <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="registration_number"
                                     name="registration_number" required maxlength="13">
                             </div>
@@ -60,6 +60,16 @@
                                 <label for="address" class="form-label">อยู่บ้าน/สำนักงานเลขที่ <span
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="address" name="address" required>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="village" class="form-label">หมู่ที่</label>
+                                <input type="text" class="form-control" id="village" name="village">
+                            </div>
+
+                            <div class="col-md-3">
+                                <label for="alley" class="form-label">ตรอก/ซอย</label>
+                                <input type="text" class="form-control" id="alley" name="alley">
                             </div>
 
                             <div class="col-md-3 mb-3">
@@ -79,7 +89,8 @@
                             </div>
 
                             <div class="col-md-3 mb-3">
-                                <label for="province" class="form-label">จังหวัด <span class="text-danger">*</span></label>
+                                <label for="province" class="form-label">จังหวัด <span
+                                        class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="province" name="province" required>
                             </div>
 

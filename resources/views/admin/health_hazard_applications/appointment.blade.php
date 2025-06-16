@@ -39,13 +39,13 @@
                             </td> --}}
                             <td>
                                 @if ($form['details']->status == 3)
-                                <span class="badge rounded-pill text-bg-primary">รอการนัดหมาย</span>
+                                <span class="badge rounded-pill text-primary">รอการนัดหมาย</span>
                                 @elseif($form['details']->status == 4)
-                                <span class="badge rounded-pill text-bg-primary">รอยืนยันนัดหมาย</span>
+                                <span class="badge rounded-pill text-primary">รอยืนยันนัดหมาย</span>
                                 @elseif($form['details']->status == 5)
-                                <span class="badge rounded-pill text-bg-warning">นัดหมายใหม่</span>
+                                <span class="badge rounded-pill text-warning">นัดหมายใหม่</span>
                                 @elseif($form['details']->status == 8)
-                                <span class="badge rounded-pill text-bg-warning">ผลสำรวจไม่ผ่านรอการนัดหมายใหม่</span>
+                                <span class="badge rounded-pill text-warning">ผลสำรวจไม่ผ่านรอการนัดหมายใหม่</span>
                                 @endif
                             </td>
                             <td>

@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('nationality')->nullable();
             $table->string('registration_number')->nullable();
             $table->string('address')->nullable();
+            $table->string('village')->nullable();
+            $table->string('alley')->nullable();
             $table->string('road')->nullable();
             $table->string('subdistrict')->nullable();
             $table->string('district')->nullable();

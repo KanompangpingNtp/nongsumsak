@@ -82,10 +82,10 @@
 
                             <td>
                                 @if ($form['details']->status == 10)
-                                <a href="{{ route('AdminCertificateHealthHazardApplicationPDF', $form->id) }}" class="badge rounded-pill text-bg-success" target="_blank" style="color: blue;">
+                                <a href="{{ route('AdminCertificateHealthHazardApplicationPDF', $form->id) }}" class="badge rounded-pill text-success" target="_blank" style="color: blue;">
                                     ออกใบอนุญาต
                                 </a>
-                                <a href="{{ url('storage/'.$form->payment->file_treasury) }}" class="badge rounded-pill text-bg-primary" target="_blank" style="color: blue;">
+                                <a href="{{ url('storage/'.$form->payment->file_treasury) }}" class="badge rounded-pill text-primary" target="_blank" style="color: blue;">
                                     ใบเสร็จกองคลัง
                                 </a>
                                 @endif

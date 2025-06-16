@@ -26,8 +26,10 @@ class FoodCollection extends Controller
         $mainForm->full_name = $request->input('full_name');
         $mainForm->age = $request->input('age');
         $mainForm->nationality = $request->input('nationality');
-        $mainForm->registration_number = $request->input('registration_number');
+        $mainForm->registration_number = $request->input('id_card_input');
         $mainForm->address = $request->input('address');
+        $mainForm->village = $request->input('village');
+        $mainForm->alley = $request->input('alley');
         $mainForm->road = $request->input('road');
         $mainForm->subdistrict = $request->input('subdistrict');
         $mainForm->district = $request->input('district');

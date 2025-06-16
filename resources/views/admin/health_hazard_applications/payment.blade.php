@@ -32,9 +32,9 @@
                             </td>
                             <td>
                                 @if ($form['details']->status == 7)
-                                <span class="badge rounded-pill text-bg-primary">รอการชำระเงิน</span>
+                                <span class="badge rounded-pill text-primary">รอการชำระเงิน</span>
                                 @elseif($form['details']->status == 9)
-                                <span class="badge rounded-pill text-bg-primary">รอการตรวจสอบ</span>
+                                <span class="badge rounded-pill text-primary">รอการตรวจสอบ</span>
                                 @endif
                             </td>
                             <td>

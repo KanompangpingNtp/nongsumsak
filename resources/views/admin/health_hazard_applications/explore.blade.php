@@ -38,7 +38,7 @@
                             </td>
                             <td>
                                 @if ($form['details']->status == 6)
-                                <span class="badge rounded-pill text-bg-primary">รอผลสำรวจ</span>
+                                <span class="badge rounded-pill text-primary">รอผลสำรวจ</span>
                                 @endif
                             </td>
                             <td>
