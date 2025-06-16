@@ -224,7 +224,7 @@
                 </ul>
             </li>
 
-              <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
+            {{-- <li class="menu-item {{ request()->is('') ? 'active open' : '' }}">
                 <a href="javascript:void(0)" class="menu-link menu-toggle">
                     <i class='menu-icon tf-icons bx bx-folder'></i>
                     <div data-i18n="User interface" class="text-truncate">ประกอบกิจการรับทำการเก็บ ขน ขยะ</div>
@@ -272,7 +272,7 @@
                         </a>
                     </li>
                 </ul>
-            </li>
+            </li> --}}
         @endif
 
         @if (Auth::user()->level == 'user')

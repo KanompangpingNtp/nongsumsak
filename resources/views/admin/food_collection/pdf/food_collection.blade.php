@@ -183,9 +183,9 @@
         <span>อยู่บ้าน/สำนักงานเลขที่</span>
         <span class="dotted-line" style="width: 23.5%; text-align: center; line-height: 1;">{{ $form->address }}</span>
         <span>หมู่ที่</span>
-        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">{{ $form->village }}</span>
         <span>ตรอก/ซอย</span>
-        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">{{ $form->alley }}</span>
         <span>ถนน</span>
         <span class="dotted-line" style="width: 17.5%; text-align: center; line-height: 1;">{{ $form->road }}</span>
         <span>ตำบล/แขวง</span>

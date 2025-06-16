@@ -21,12 +21,14 @@ return new class extends Migration
             $table->string('nationality');
             $table->string('id_card');
             $table->string('house_number');
+            $table->string('alley');
             $table->string('road')->nullable();
             $table->string('village');
             $table->string('sub_district');
             $table->string('district');
             $table->string('province');
             $table->string('type_option');
+            $table->string('submit_name')->nullable();
             $table->string('submit_address_number')->nullable();
             $table->string('submit_alley')->nullable();
             $table->string('submit_road')->nullable();

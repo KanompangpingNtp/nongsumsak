@@ -26,12 +26,14 @@ class PrivateMarket extends Controller
         $privateMarket->nationality = $request->input('nationality');
         $privateMarket->id_card = $request->input('id_card');
         $privateMarket->house_number = $request->input('house_number');
+        $privateMarket->alley = $request->input('alley');
         $privateMarket->road = $request->input('road');
         $privateMarket->village = $request->input('village');
         $privateMarket->sub_district = $request->input('sub_district');
         $privateMarket->district = $request->input('district');
         $privateMarket->province = $request->input('province');
         $privateMarket->type_option = $request->input('type_option');
+        $privateMarket->submit_name = $request->input('submit_name');
         $privateMarket->submit_address_number = $request->input('submit_address_number');
         $privateMarket->submit_alley = $request->input('submit_alley');
         $privateMarket->submit_road = $request->input('submit_road');

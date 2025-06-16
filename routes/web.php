@@ -29,10 +29,11 @@ use App\Http\Controllers\private_market\PrivateMarket;
 // });
 
 //auth
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login-page', [AuthController::class, 'LoginPage'])->name('LoginPage');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [AuthController::class, 'LoginPage'])->name('LoginPage');
 Route::get('/register-page', [AuthController::class, 'RegisterPage'])->name('RegisterPage');
 Route::post('/login', [AuthController::class, 'Login'])->name('Login');
 Route::post('/register', [AuthController::class, 'Register'])->name('Register');

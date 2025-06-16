@@ -49,7 +49,8 @@
                             <div class="col-md-2 mb-3">
                                 <label for="id_card" class="form-label">เลขประจำตัวบัตรประชาชน <span
                                         class="text-danger">*</span></label>
-                                <input type="text" class="form-control require" id="id_card" name="id_card" required maxlength="13">
+                                <input type="text" class="form-control require" id="id_card" name="id_card" required
+                                    maxlength="13">
                             </div>
 
                             <div class="col-md-2 mb-3">
@@ -57,6 +58,11 @@
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control require" id="house_number" name="house_number"
                                     required>
+                            </div>
+
+                            <div class="col-md-3 mb-3">
+                                <label for="alley" class="form-label">ซอย</label>
+                                <input type="text" class="form-control require" id="alley" name="alley">
                             </div>
 
                             <div class="col-md-3 mb-3">
@@ -77,7 +83,8 @@
 
                             <div class="col-md-3 mb-3">
                                 <label for="district" class="form-label">อำเภอ <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control require" id="district" name="district" required>
+                                <input type="text" class="form-control require" id="district" name="district"
+                                    required>
                             </div>
 
                             <div class="col-md-3 mb-3">
@@ -104,6 +111,13 @@
                                         id="type_option_2" value="2" required>
                                     <label class="form-check-label" for="type_option_2">2</label>
                                 </div>
+                            </div>
+
+                            <div class="mb-3 col-md-3">
+                                <label for="submit_name" class="form-label">ชื่อ <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" class="form-control require" id="submit_name"
+                                    name="submit_name" required>
                             </div>
 
                             <div class="col-md-3 mb-3">

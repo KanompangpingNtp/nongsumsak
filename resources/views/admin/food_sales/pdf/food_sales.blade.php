@@ -132,7 +132,7 @@
         <!-- กล่องกลาง -->
         <div class="box_text" style="position: absolute; top: 0; width:50%; text-align: start;">
             <span>เล่มที่</span>
-            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;">{{ $info_number->number }}</span>
             <span>เลขที่</span>
             <span class="dotted-line"
                 style="width: 20%; text-align: center; line-height: 1;">{{ $info_number->book }}</span>

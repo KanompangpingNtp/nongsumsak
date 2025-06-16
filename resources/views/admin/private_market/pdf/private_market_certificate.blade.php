@@ -78,6 +78,38 @@
     </style>
 </head>
 
+@php
+    $date = $form->receipt_date ?? null;
+    if ($date) {
+        $carbon = \Carbon\Carbon::parse($date)->locale('th');
+        $day = $carbon->isoFormat('D'); // ตัวเลขอารบิก
+        $month = $carbon->isoFormat('MMMM'); // ชื่อเดือนภาษาไทย
+        $year = $carbon->year + 543; // ปี พ.ศ.
+    } else {
+        $day = $month = $year = '-';
+    }
+
+    $expirationDate = $file->expiration_date ?? null;
+    if ($expirationDate) {
+        $expirationCarbon = \Carbon\Carbon::parse($expirationDate)->locale('th');
+        $expirationDay = $expirationCarbon->isoFormat('D');
+        $expirationMonth = $expirationCarbon->isoFormat('MMMM');
+        $expirationYear = $expirationCarbon->year + 543;
+    } else {
+        $expirationDay = $expirationMonth = $expirationYear = '-';
+    }
+
+    $updatedDate = $file->created_at ?? null;
+    if ($updatedDate) {
+        $updatedCarbon = \Carbon\Carbon::parse($updatedDate)->locale('th');
+        $updatedDay = $updatedCarbon->isoFormat('D');
+        $updatedMonth = $updatedCarbon->isoFormat('MMMM');
+        $updatedYear = $updatedCarbon->year + 543;
+    } else {
+        $updatedDay = $updatedMonth = $updatedYear = '-';
+    }
+@endphp
+
 <body>
     <div style="width: 100%; position: relative; margin-bottom: 10px;">
         <!-- กล่องกลาง -->
@@ -97,11 +129,11 @@
         <!-- กล่องกลาง -->
         <div class="box_text" style="position: absolute; top: 0; width:50%; text-align: start;">
             <span>เล่มที่</span>
-            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;">{{ $info_number->number }}</span>
             <span>เลขที่</span>
-            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;">{{ $info_number->book }}</span>
             <span>ปี</span>
-            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 20%; text-align: center; line-height: 1;">{{ $info_number->year }}</span>
         </div>
 
         <!-- กล่องขวาบน -->
@@ -113,102 +145,102 @@
     <div class="box_text" style="text-align: start; margin-top:3rem;">
         <div style="margin-left: 5rem;">
             <span>เจ้าพนักงานท้องถิ่น</span><span style="margin-left: 10px;">อนุญาตให้</span>
-            <input type="checkbox">
+            <input type="checkbox" {{ $form->title_name == 'บุคคลธรรมดา' ? 'checked' : '' }}>
             <span>บุคคลธรรมดา</span>
-            <input type="checkbox">
+            <input type="checkbox" {{ $form->title_name == 'นิติบุคคล' ? 'checked' : '' }}>
             <span>นิติบุคคล</span><br>
             <span>ชื่อ</span>
-        <span class="dotted-line" style="width: 58%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 58%; text-align: center; line-height: 1;">{{ $form->full_name }}</span>
         <span>อายุ</span>
-        <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;">{{ $form->age }}</span>
         <span>ปี สัญชาติ</span>
-        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $form->nationality }}</span>
 
         </div>
     </div>
     <div class="box_text">
         <span>เลขประจำตัวประชาชนเลขที่</span>
-        <span class="dotted-line" style="width: 34%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 34%; text-align: center; line-height: 1;">{{ $form->id_card }}</span>
         <span>อยู่บ้านเลขที่</span>
-        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $form->house_number }}</span>
         <span>หมู่ที่</span>
-        <span class="dotted-line" style="width: 14.5%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 14.5%; text-align: center; line-height: 1;">{{ $form->village }}</span>
         <span>ตรอก/ซอย</span>
-        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;">{{ $form->alley }}</span>
         <span>ถนน</span>
-        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;">{{ $form->road }}</span>
         <span>ตำบล/แขวง</span>
-        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;">{{ $form->sub_district }}</span>
         <span>อำเภอ/เขต</span>
-        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 16.2%; text-align: center; line-height: 1;">{{ $form->district }}</span>
         <span>จังหวัด</span>
-        <span class="dotted-line" style="width: 30%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 30%; text-align: center; line-height: 1;">{{ $form->province }}</span>
     </div>
     <div class="box_text" style="text-align: start; margin-top:1rem; ">
         <div style="margin-left: 5rem;">
             <span>๑. จัดตั้งตลาดประเภทที่</span>
-            <input type="checkbox" style="margin-bottom: 2px; margin-right: 10px;"><span>๑.</span>
-            <input type="checkbox" style="margin-bottom: 2px; margin-right: 10px;"><span>๒. ชื่อ</span>
-            <span class="dotted-line" style="width: 59%; text-align: center; line-height: 1;"></span>
+            <input type="checkbox" style="margin-bottom: 2px; margin-right: 10px;" {{ $form->type_option == '1' ? 'checked' : '' }}><span>๑.</span>
+            <input type="checkbox" style="margin-bottom: 2px; margin-right: 10px;" {{ $form->type_option == '2' ? 'checked' : '' }}><span>๒. ชื่อ</span>
+            <span class="dotted-line" style="width: 59%; text-align: center; line-height: 1;">{{ $form->submit_name }}</span>
         </div>
     </div>
     <div class="box_text">
         <span>ตั้งอยู่เลขที่</span>
-        <span class="dotted-line" style="width: 20.8%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 20.8%; text-align: center; line-height: 1;">{{ $form->submit_address_number }}</span>
         <span>ซอย</span>
-        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $form->submit_alley }}</span>
         <span>ถนน</span>
-        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $form->submit_road }}</span>
         <span>หมู่ที่</span>
-        <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 10%; text-align: center; line-height: 1;">{{ $form->submit_road }}</span>
         <span>ตำบล</span>
-        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $form->submit_village }}</span>
         <span>อำเภอ</span>
-        <span class="dotted-line" style="width: 26.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 26.2%; text-align: center; line-height: 1;">{{ $form->submit_sub_district }}</span>
         <span>จังหวัด</span>
-        <span class="dotted-line" style="width: 26.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 26.2%; text-align: center; line-height: 1;">{{ $form->district }}</span>
         <span>โทรศัพท์</span>
-        <span class="dotted-line" style="width: 26.2%; text-align: center; line-height: 1;"></span>
+        <span class="dotted-line" style="width: 26.2%; text-align: center; line-height: 1;">{{ $form->submit_phone }}</span>
     </div>
     <div class="box_text" style="text-align: start; margin-top:1rem; ">
         <div style="margin-left: 5rem;">
             <span>๒. ค่าธรรมเนียม ฉบับละ</span>
-            <span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;">{{$explore->price}}</span>
             <span>บาท/ปี ใบเสร็จรับเงินเลขที่</span>
-            <span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 26%; text-align: center; line-height: 1;">{{$file->receipt_book}}</span>
         </div>
     </div>
     <div class="box_text">
         <span>ลงวันที่</span>
-            <span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{ $day }}</span>
             <span>เดือน</span>
-            <span class="dotted-line" style="width: 25%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 25%; text-align: center; line-height: 1;">{{ $month }}</span>
             <span>พ.ศ.</span>
-            <span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 15%; text-align: center; line-height: 1;">{{ $year }}</span>
     </div>
-    <div class="box_text" style="text-align: start; margin-top:1rem; ">
+    <div class="box_text" style="text-align: start; margin-top:2px; ">
         <div style="margin-left: 5rem;">
             <span>๓. ผู้ได้รับใบอนุญาตต้องปฎิบัติตามเงื่อนไขดังต่อไปนี้</span><br>
             <span>(๑) อนุญาตให้จัดตลาดวันอังคาร วันพฤหัสบดี และวันศุกร์</span><br>
             <span>(๒) เวลาเปิดตลาด ๑๕.๐๐ น. เวลาปิดตลาด ๑๙.๓๐ น.</span>
         </div>
     </div>
-    <div class="box_text" style="text-align: start; margin-top:2rem; ">
+    <div class="box_text" style="text-align: start; margin-top:5px; ">
             <span >ออกให้ ณ วันที่</span>
-            <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{ $updatedDay }}</span>
             <span >เดือน</span>
-            <span class="dotted-line" style="width: 22%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 22%; text-align: center; line-height: 1;">{{ $updatedMonth }}</span>
             <span >พ.ศ.</span>
-            <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 12%; text-align: center; line-height: 1;">{{ $updatedYear }}</span>
     </div>
     <div class="box_text" style="text-align: left;">
         <div style="margin-left: 8rem; margin-top:1rem; font-weight: bold;">
             <span>สิ้นอายุ วันที่</span>
-            <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $expirationDay }}</span>
             <span>เดือน</span>
-            <span class="dotted-line" style="width: 23%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 23%; text-align: center; line-height: 1;">{{ $expirationMonth }}</span>
             <span>พ.ศ.</span>
-            <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;"></span>
+            <span class="dotted-line" style="width: 13%; text-align: center; line-height: 1;">{{ $expirationYear }}</span>
         </div>
 
     </div>
